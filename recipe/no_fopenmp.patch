@@ -1,0 +1,19 @@
+--- pandana-0.4.2.orig/setup.py	2019-08-09 16:58:28.000000000 -0300
++++ pandana-0.4.2/setup.py	2019-08-12 08:17:22.117398161 -0300
+@@ -51,7 +51,7 @@
+ ## Building the C++ extension
+ ###############################################
+ 
+-extra_compile_args = ['-w', '-std=c++11', '-O3']
++extra_compile_args = ['-w', '-std=c++14', '-O3']
+ extra_link_args = []
+ 
+ # Mac compilation: flags are for the llvm compilers included with recent
+@@ -71,7 +71,6 @@
+     # not confirm there's OpenMP support, but is the best we could come up with)
+     if os.popen('which clang').read() != '/usr/bin/clang':
+         os.environ['CC'] = 'clang'
+-        extra_compile_args += ['-fopenmp']
+ 
+ # Window compilation: flags are for Visual C++
+ 
