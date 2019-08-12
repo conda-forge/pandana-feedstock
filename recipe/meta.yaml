@@ -8,6 +8,7 @@ source:
   url: https://pypi.io/packages/source/p/pandana/pandana-{{ version }}.tar.gz
   sha256: 4069fc9dd220f0e189de4ac56d8e65cf97e4619544ce249466bd7f3abd7b41fe
   patches:
+    - functional.patch
     - no_fopenmp.patch  # [osx]
 
 build:
