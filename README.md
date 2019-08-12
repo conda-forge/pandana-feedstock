@@ -1,7 +1,7 @@
 About pandana
 =============
 
-Home: https://udst.github.io/pandana
+Home: https://github.com/udst/pandana
 
 Package license: AGPL-3.0
 
@@ -9,6 +9,7 @@ Feedstock license: BSD 3-Clause
 
 Summary: Pandas Network Analysis - dataframes of network queries, quickly
 
+Pandana performs hundreds of thousands of network queries in under a second (for walking-scale distances) using a Pandas-like API. The computations are parallelized for multi-core machines using an underlying C++ library.
 
 
 Current build status
@@ -186,4 +187,5 @@ Feedstock Maintainers
 =====================
 
 * [@ocefpaf](https://github.com/ocefpaf/)
+* [@smmaurer](https://github.com/smmaurer/)
 
