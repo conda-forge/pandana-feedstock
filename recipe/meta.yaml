@@ -11,8 +11,7 @@ source:
     - functional.patch
 
 build:
-  number: 1
-  skip: True  # [win and vc<14]
+  number: 2
   script:
     - export LDFLAGS="$LDFLAGS -fopenmp"  # [osx]
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
