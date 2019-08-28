@@ -7,8 +7,6 @@ package:
 source:
   url: https://pypi.io/packages/source/p/pandana/pandana-{{ version }}.tar.gz
   sha256: 7832c9a8125f50b5da6372b644c11d1f91e731c3f5b9ad4810b0f912b71c032e
-  patches:
-    - functional.patch
 
 build:
   number: 0
