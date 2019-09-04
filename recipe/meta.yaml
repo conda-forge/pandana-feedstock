@@ -10,7 +10,6 @@ source:
 
 build:
   number: 0
-  skip: True  # [win and vc<14]
   script:
     - export LDFLAGS="$LDFLAGS -fopenmp"  # [osx]
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
