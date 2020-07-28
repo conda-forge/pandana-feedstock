@@ -1,4 +1,4 @@
-{% set version = "0.4.4" %}
+{% set version = "0.5" %}
 
 package:
   name: pandana
@@ -6,13 +6,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pandana/pandana-{{ version }}.tar.gz
-  sha256: 14e6fa160d5b6e3cb75babf11a96ee990219932359333adaba44fc4387dcd3c2
+  sha256: ed1a0a1ec8d2d90bfa8760dcea03dcd0d8765d60c38d24cafedb35a83648d767
 
 build:
-  number: 1
+  number: 0
   script:
     - export LDFLAGS="$LDFLAGS -fopenmp"  # [osx]
-    - "{{ PYTHON }} -m pip install . --no-deps -vv"
+    - {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
@@ -28,14 +28,12 @@ requirements:
   run:
     - {{ pin_compatible('numpy') }}
     - llvm-openmp  # [osx]
-    - matplotlib-base >=1.3.1
-    - numpy >=1.8.0
-    - osmnet >=0.1.2
-    - pandas >=0.17.0
+    - numpy >=1.8
+    - pandas >=0.17
     - python
     - requests >=2.0
-    - scikit-learn >=0.18.1
-    - pytables >=3.1.0
+    - scipy >=0.9
+    - pytables >=3.1
 
 test:
   imports:
@@ -50,9 +48,9 @@ about:
   license: AGPL-3.0
   license_family: AGPL
   license_file: LICENSE.txt
-  summary: "Pandas Network Analysis - dataframes of network queries, quickly"
+  summary: Python library for network analysis
   description: |
-    Pandana performs hundreds of thousands of network queries in under a second (for walking-scale distances) using a Pandas-like API. The computations are parallelized for multi-core machines using an underlying C++ library.
+    Pandana is a Python library for network analysis that uses contraction hierarchies to calculate super-fast travel accessibility metrics and shortest paths. The numerical code is in C++.
   doc_url: https://udst.github.io/pandana
   dev_url: https://github.com/udst/pandana
 
