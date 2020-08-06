@@ -1,4 +1,4 @@
-{% set version = "0.5" %}
+{% set version = "0.5.1" %}
 
 package:
   name: pandana
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pandana/pandana-{{ version }}.tar.gz
-  sha256: ed1a0a1ec8d2d90bfa8760dcea03dcd0d8765d60c38d24cafedb35a83648d767
+  sha256: d87e224efb718506fcf0347f0594673d3bf314e3670243152a46da8a092d7548
 
 build:
   number: 0
@@ -32,7 +32,7 @@ requirements:
     - pandas >=0.17
     - python
     - requests >=2.0
-    - scipy >=0.9
+    - scikit-learn >=0.18
     - pytables >=3.1
 
 test:
