@@ -20,17 +20,17 @@ requirements:
     - {{ compiler('cxx') }}
     - llvm-openmp  # [osx]
   host:
-    - python >=3.5
+    - python
     - pip
     - cython >=0.25.2
     - llvm-openmp  # [osx]
     - numpy
   run:
-    - {{ pin_compatible('numpy') }}
+#    - {{ pin_compatible('numpy') }}
     - llvm-openmp  # [osx]
     - numpy >=1.8
     - pandas >=0.17
-    - python >=3.5
+    - python  # no version restriction needed because conda-forge determines
     - requests >=2.0
     - scikit-learn >=0.18
     - pytables >=3.1
@@ -40,8 +40,10 @@ test:
     - pandana
     - pandana.cyaccess
     - pandana.loaders
-  requires:
-    - pytest
+  source_files:
+    - examples/simple_example.py
+  commands:
+    - python examples/simple_example.py
 
 about:
   home: https://github.com/udst/pandana
