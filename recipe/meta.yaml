@@ -41,8 +41,8 @@ test:
     - pandana.cyaccess
     - pandana.loaders
   source_files:
-    - examples/simple_example.py
-    - pandana/tests/osm_sample.h5
+    - examples
+    - pandana/tests
   commands:
     - python examples/simple_example.py
 
