@@ -40,11 +40,6 @@ test:
     - pandana
     - pandana.cyaccess
     - pandana.loaders
-  source_files:
-    - examples
-    - pandana/tests
-  commands:
-    - python examples/simple_example.py
 
 about:
   home: https://github.com/udst/pandana
