@@ -1,4 +1,4 @@
-{% set version = "0.6" %}
+{% set version = "0.6.1" %}
 
 package:
   name: pandana
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pandana/pandana-{{ version }}.tar.gz
-  sha256: 2166974da455d5217a7a248af1f34a94a4b895fc6cc85c2b0002431eccef532a
+  sha256: 7bcaf6e7bb3faccaf306846bf30838d8e94b3ebd58e971da8c3fe426f1f9288c
 
 build:
   number: 0
@@ -30,7 +30,7 @@ requirements:
     - llvm-openmp  # [osx]
     - numpy >=1.8
     - pandas >=0.17
-    - python
+    - python  # no version restriction needed because conda-forge determines
     - requests >=2.0
     - scikit-learn >=0.18
     - pytables >=3.1
@@ -40,12 +40,10 @@ test:
     - pandana
     - pandana.cyaccess
     - pandana.loaders
-  requires:
-    - pytest
 
 about:
   home: https://github.com/udst/pandana
-  license: AGPL-3.0
+  license: AGPL-3.0-only
   license_family: AGPL
   license_file: LICENSE.txt
   summary: Python library for network analysis
@@ -57,4 +55,5 @@ about:
 extra:
   recipe-maintainers:
     - smmaurer
+    - sablanchard
     - ocefpaf
