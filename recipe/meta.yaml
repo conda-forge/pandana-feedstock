@@ -42,6 +42,7 @@ test:
     - pandana.loaders
   source_files:
     - examples/simple_example.py
+    - tests/osm_sample.h5
   commands:
     - python examples/simple_example.py
 
