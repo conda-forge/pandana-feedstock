@@ -40,6 +40,8 @@ test:
     - pandana
     - pandana.cyaccess
     - pandana.loaders
+  requires:
+    - pytest
 
 about:
   home: https://github.com/udst/pandana
