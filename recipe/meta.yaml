@@ -26,7 +26,7 @@ requirements:
     - llvm-openmp  # [osx]
     - numpy
   run:
-#    - {{ pin_compatible('numpy') }}
+    - {{ pin_compatible('numpy') }}
     - llvm-openmp  # [osx]
     - numpy >=1.8
     - pandas >=0.17
