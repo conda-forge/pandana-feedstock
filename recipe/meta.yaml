@@ -12,6 +12,7 @@ build:
   number: 2
   script:
     - export LDFLAGS="$LDFLAGS -fopenmp"  # [osx]
+    - cat $(which cython)  # [py>310]
     - cython --force --cplus src/cyaccess.pyx  # [py>310]
     - {{ PYTHON }} -m pip install . -vv
 
