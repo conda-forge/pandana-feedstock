@@ -1,4 +1,4 @@
-{% set version = "0.6.1" %}
+{% set version = "0.7" %}
 
 package:
   name: pandana
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pandana/pandana-{{ version }}.tar.gz
-  sha256: 7bcaf6e7bb3faccaf306846bf30838d8e94b3ebd58e971da8c3fe426f1f9288c
+  sha256: 416a5998ba9ae64fe546186f430e705b8a59bb5ff71c195fd64d734f9c70e795
 
 build:
-  number: 1
+  number: 0
   script:
     - export LDFLAGS="$LDFLAGS -fopenmp"  # [osx]
     - {{ PYTHON }} -m pip install . --no-deps -vv
