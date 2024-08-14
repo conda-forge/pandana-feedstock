@@ -9,7 +9,7 @@ source:
   sha256: 416a5998ba9ae64fe546186f430e705b8a59bb5ff71c195fd64d734f9c70e795
 
 build:
-  number: 2
+  number: 3
   script:
     - export LDFLAGS="$LDFLAGS -fopenmp"  # [osx]
     - {{ PYTHON }} -m pip install . --no-deps -vv
@@ -21,6 +21,7 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - llvm-openmp  # [osx]
   host:
@@ -30,7 +31,6 @@ requirements:
     - llvm-openmp  # [osx]
     - numpy
   run:
-    - {{ pin_compatible('numpy') }}
     - llvm-openmp  # [osx]
     - numpy >=1.8
     - pandas >=0.17
