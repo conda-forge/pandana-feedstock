@@ -12,13 +12,13 @@ build:
   number: 3
   script:
     - export LDFLAGS="$LDFLAGS -fopenmp"  # [osx]
-    - {{ PYTHON }} -m pip install . --no-deps -vv
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
+    - cython >=0.25.2                        # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
@@ -31,19 +31,29 @@ requirements:
     - llvm-openmp  # [osx]
     - numpy
   run:
+    - python
     - llvm-openmp  # [osx]
     - numpy >=1.8
     - pandas >=0.17
-    - python  # no version restriction needed because conda-forge determines
     - requests >=2.0
     - scikit-learn >=0.18
     - pytables >=3.1
 
 test:
+  source_files:
+    - tests/
+  files:
+    - osm_sample.h5
   imports:
     - pandana
     - pandana.cyaccess
     - pandana.loaders
+  commands:
+    - pip check
+    - mv osm_sample.h5 tests/ && pytest tests/ # [not win]
+  requires:
+    - pip
+    - pytest
 
 about:
   home: https://github.com/udst/pandana
