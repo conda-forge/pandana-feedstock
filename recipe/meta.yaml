@@ -50,7 +50,7 @@ test:
     - pandana.loaders
   commands:
     - pip check
-    - mv osm_sample.h5 tests/ && pytest tests/ # [not win]
+    - mv osm_sample.h5 tests/ && pytest tests/  # [not win]
   requires:
     - pip
     - pytest
