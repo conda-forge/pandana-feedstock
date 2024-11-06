@@ -9,7 +9,7 @@ source:
   sha256: 416a5998ba9ae64fe546186f430e705b8a59bb5ff71c195fd64d734f9c70e795
 
 build:
-  number: 3
+  number: 4
   script:
     - export LDFLAGS="$LDFLAGS -fopenmp"  # [osx]
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -26,6 +26,7 @@ requirements:
     - llvm-openmp  # [osx]
   host:
     - python
+    - setuptools
     - pip
     - cython >=0.25.2
     - llvm-openmp  # [osx]
