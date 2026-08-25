@@ -1,15 +1,15 @@
-{% set version = "0.7" %}
+{% set version = "0.8" %}
 
 package:
   name: pandana
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
-  url: https://pypi.io/packages/source/p/pandana/pandana-{{ version }}.tar.gz
-  sha256: 416a5998ba9ae64fe546186f430e705b8a59bb5ff71c195fd64d734f9c70e795
+  url: https://files.pythonhosted.org/packages/source/p/pandana/pandana-{{ version }}.tar.gz
+  sha256: 1a179b0e4cffa8287a0724f67c2f666891bdeb203288bd68181ca86189e3014d
 
 build:
-  number: 3
+  number: 0
   script:
     - export LDFLAGS="$LDFLAGS -fopenmp"  # [osx]
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -18,7 +18,7 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython >=0.25.2                        # [build_platform != target_platform]
+    - cython >=3.0.10                        # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
@@ -27,17 +27,18 @@ requirements:
   host:
     - python
     - pip
-    - cython >=0.25.2
+    - setuptools >=64
+    - cython >=3.0.10
     - llvm-openmp  # [osx]
     - numpy
   run:
     - python
     - llvm-openmp  # [osx]
-    - numpy >=1.8
-    - pandas >=0.17
+    - numpy >=1.26
+    - pandas >=2.2
     - requests >=2.0
-    - scikit-learn >=0.18
-    - pytables >=3.1
+    - scikit-learn >=1.5
+    - pytables >=3.10
 
 test:
   source_files:
